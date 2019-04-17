@@ -38,6 +38,11 @@ Route::middleware([ 'auth'])->prefix('users')->group(function () {
 
 
     Route::get('/', 'User\UsersController@index');
+    Route::get('profile', 'User\ProfileController@index')->name('users.profile');
+    Route::put('profile', 'User\ProfileController@update')->name('users.profile.update');
+
+    Route::get('password', 'User\PasswordController@index')->name('users.password');
+    Route::put('password', 'User\PasswordController@update')->name('users.password.update');
 
 
     Route::middleware(['instructor'])->group(function () {

@@ -195,14 +195,14 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('users.profile') }}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span> Profile </span></a>
     </li>
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href=" {{ route('users.password') }} ">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span> Password </span></a>
     </li>
