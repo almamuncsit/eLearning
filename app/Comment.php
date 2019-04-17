@@ -1,0 +1,24 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Comment extends Model
+{
+    
+    protected $fillable = [ 'lesson_id', 'user_id', 'description' ];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+
+    public function lession()
+    {
+        return $this->belongsTo(Lesson::class);
+    }
+
+}
