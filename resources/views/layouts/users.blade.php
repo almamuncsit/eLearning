@@ -235,8 +235,8 @@
         </a>
         <div id="sectinos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#"> Section List </a>
-            <a class="collapse-item" href="#"> New Section </a>
+            <a class="collapse-item" href="{{ url('users/sections') }}"> Section List </a>
+            <a class="collapse-item" href="{{ url('users/sections/create') }}"> New Section </a>
         </div>
         </div>
     </li>
@@ -249,8 +249,8 @@
         </a>
         <div id="lessons" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#"> Lesson List </a>
-            <a class="collapse-item" href="#"> New Lesson </a>
+            <a class="collapse-item" href="{{ url('users/lessons') }}"> Lesson List </a>
+            <a class="collapse-item" href="{{ url('users/lessons/create') }}"> New Lesson </a>
         </div>
         </div>
     </li>

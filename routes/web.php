@@ -48,6 +48,8 @@ Route::middleware([ 'auth'])->prefix('users')->group(function () {
     Route::middleware(['instructor'])->group(function () {
 
         Route::resource('courses', 'Instructor\CourseController');
+        Route::resource('sections', 'Instructor\SectionsController');
+        Route::resource('lessons', 'Instructor\LessonsController');
     });
 
 });

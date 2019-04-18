@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Course extends Model
 {
@@ -36,6 +37,19 @@ class Course extends Model
     public function lessons()
     {
         return $this->hasMany(Lesson::class);
+    }
+
+
+    public static function list()
+    {
+        $courses = Auth::user()->courses;
+        $arr = array();
+
+        foreach ($courses as $course) {
+            $arr[$course->id] = $course->title;
+        }
+
+        return $arr;
     }
 
 }

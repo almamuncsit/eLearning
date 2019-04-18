@@ -19,7 +19,7 @@ class CreateLessionsTable extends Migration
             $table->unsignedInteger('instructor_id');
             $table->unsignedInteger('section_id');
             $table->string('title');
-            $table->text('discription');
+            $table->text('description');
             $table->string('video_url')->nullable();
             $table->string('source_code_url')->nullable();
             $table->integer('view_count')->nullable();
