@@ -43,7 +43,7 @@
 
                         <div class="form-group ">
                             <label for="description">lesson Description : </label>
-                            {!! Form::textarea('description', NULL, ['class' => 'form-control', 'placeholder' => 'Description']) !!}
+                            {!! Form::textarea('description', NULL, ['class' => 'form-control', 'id'=> 'editor', 'placeholder' => 'Description']) !!}
                             @if($errors->has('description')) 
                                 <small class="text-danger"> {{ $errors->first('description') }} </small>
                             @endif
@@ -82,4 +82,15 @@
 </div>
 
 
+@endsection
+
+@section('js')
+<script src="https://cdn.ckeditor.com/ckeditor5/12.1.0/classic/ckeditor.js"></script>    
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 @endsection

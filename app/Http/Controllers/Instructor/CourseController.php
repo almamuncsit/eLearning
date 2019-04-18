@@ -31,6 +31,7 @@ class CourseController extends Controller
     {
         $this->data['title'] = 'Create New Course';
         $this->data['categories'] = Category::list();
+        $this->data['mode'] = 'create';
 
         return view('instructor.courses.create', $this->data);
     }
@@ -81,8 +82,9 @@ class CourseController extends Controller
         $this->data['title'] = 'Update Course';
         $this->data['categories'] = Category::list();
         $this->data['course'] = Auth::user()->courses()->findOrFail($id);
+        $this->data['mode'] = 'edit';
 
-        return view('instructor.courses.edit', $this->data);
+        return view('instructor.courses.create', $this->data);
     }
 
     /**
