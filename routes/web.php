@@ -16,6 +16,8 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('course/{id}', 'Website\CoursesController@show')->name('course-details');
+Route::get('lesson/{id}/{slug}', 'Website\LessonsController@show')->name('lesson-details');
 
 
 

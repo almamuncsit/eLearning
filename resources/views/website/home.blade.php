@@ -47,7 +47,7 @@
                     <p class="card-text">
                         {!! substr($course->description, 0, 100) !!}
                     </p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="{{ route('course-details', $course->id) }}" class="btn btn-primary">Start Course</a>
                 </div>
             </div>
         </div>
