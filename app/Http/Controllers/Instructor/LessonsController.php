@@ -28,11 +28,12 @@ class LessonsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create( $course_id )
     {
+        $this->data['course'] = Course::find($course_id);
         $this->data['title'] = 'Create New Lesson';
         $this->data['courses'] = Course::list();
-        $this->data['sections'] = Section::list();
+        $this->data['sections'] = Section::list( $course_id );
         $this->data['mode'] = 'create';
 
         return view('instructor.lessons.create', $this->data);
@@ -77,8 +78,11 @@ class LessonsController extends Controller
     {
         $this->data['title'] = 'Create New Lesson';
         $this->data['courses'] = Course::list();
-        $this->data['sections'] = Section::list();
         $this->data['lesson'] = Auth::user()->lessons()->findOrFail($id);
+        
+        $this->data['sections'] = Section::list( $this->data['lesson']->course_id );
+        $this->data['course'] = $this->data['lesson']->course;
+
         $this->data['mode'] = 'edit';
 
         return view('instructor.lessons.create', $this->data);

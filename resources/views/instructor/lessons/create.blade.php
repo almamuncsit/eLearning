@@ -18,10 +18,8 @@
                     @endif    
                         <div class="form-group ">
                             <label for="course_id"> Course : </label>
-                            {!! Form::select('course_id', $courses, NULL, ['class' => 'form-control', 'placeholder' => '-- Select Course --']) !!}
-                            @if($errors->has('course_id')) 
-                                <small class="text-danger"> {{ $errors->first('course_id') }} </small>
-                            @endif
+                            {{ $course->title }}
+                            {!! Form::hidden('course_id', $course->id) !!}
                         </div>
 
                         <div class="form-group ">

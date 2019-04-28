@@ -6,8 +6,7 @@
 
 
 <a href="{{ url('users/courses') }}" class="btn btn-info"> Back </a>
-<br>
-<br>
+<br><br>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -34,7 +33,7 @@
             <tr>
                 <td> Image </td>
                 <td>
-                <img src="{{ asset($course->image) }}" alt=""> 
+                <img src="{{ asset($course->image) }}" width="200"> 
                 </td>
             </tr>
         </tbody>
@@ -43,5 +42,26 @@
   </div>
 </div>
 
+<div class="row clearfix mb-4 mt-4">
+    <a href="{{ url('users/lessons/' . $course->id . '/create') }}" class="btn btn-primary float-right"> Add Lesson </a>
+</div>
+
+<div class="row clearfix">
+@foreach ($course->sections as $section)
+    <div class="mb-5 col-md-12">
+        <ul class="list-group">
+            <li class="list-group-item active"> {{ $section->title }} </li>
+            @foreach ($section->lessons as $lesson)
+                <li class="list-group-item"> 
+                    <a href="{{ route('lesson-details', [$lesson->id, str_slug($lesson->title)] ) }}">
+                        {{ $lesson->title }}  <br>
+                        By: <small> {{ $lesson->instructor->name }} </small> 
+                    </a>
+                </li>
+            @endforeach  
+        </ul>
+    </div>
+@endforeach
+</div>
 
 @endsection

@@ -19,9 +19,9 @@ class Section extends Model
         return $this->hasMany(Lesson::class);
     }
 
-    public static function list()
+    public static function list( $course_id )
     {
-        $sections = Auth::user()->sections;
+        $sections = Course::find($course_id)->sections;
         $arr = array();
 
         foreach ($sections as $section) {

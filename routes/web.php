@@ -19,6 +19,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('course/{id}', 'Website\CoursesController@show')->name('course-details');
 Route::get('lesson/{id}/{slug}', 'Website\LessonsController@show')->name('lesson-details');
 
+Route::get('contact', 'Website\ContactsController@contact');
 
 
 
@@ -29,6 +30,9 @@ Route::middleware([ 'auth', 'admin'])->prefix('admin')->group(function () {
     Route::resource('categories', 'Admin\CategoriesController')->except(['show']);
     Route::get('users', 'Admin\UsersController@index');
     Route::get('users/{id}', 'Admin\UsersController@show')->name('admin.user.show');
+
+    Route::get('courses', 'Admin\CoursesController@index');
+    Route::get('courses/{id}/approve', 'Admin\CoursesController@approve');
 
 });
 
@@ -49,7 +53,9 @@ Route::middleware([ 'auth'])->prefix('users')->group(function () {
 
         Route::resource('courses', 'Instructor\CourseController');
         Route::resource('sections', 'Instructor\SectionsController');
-        Route::resource('lessons', 'Instructor\LessonsController');
+        Route::get('lessons/{course_id}/create', 'Instructor\LessonsController@create');
+        Route::resource('lessons', 'Instructor\LessonsController')->except(['create']);;
+        
     });
 
 });

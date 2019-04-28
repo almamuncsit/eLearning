@@ -9,14 +9,15 @@
     <div class="row clearfix">
         
         <div class="col-md-4">
-                @foreach ($lesson->course->sections as $section)
+            <?php $i=1; ?>
+            @foreach ($lesson->course->sections as $section)
                 <div class="mb-2">
                     <ul class="list-group">
                         <li class="list-group-item active"> {{ $section->title }} </li>
                         @foreach ($section->lessons as $lsn)
                             <li class="list-group-item"> 
                                 <a href="{{ route('lesson-details', [$lsn->id, str_slug($lsn->title)] ) }}">
-                                    {{ $lsn->title }}
+                                    {{ $i++ }} } {{ $lsn->title }}
                                 </a>
                             </li>
                         @endforeach  

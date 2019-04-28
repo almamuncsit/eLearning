@@ -52,4 +52,11 @@ class Course extends Model
         return $arr;
     }
 
+
+
+    public function scopeApproved($query)
+    {
+        return $query->where('is_approved', 1);
+    }
+
 }

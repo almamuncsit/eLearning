@@ -250,7 +250,7 @@
         <div id="lessons" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="{{ url('users/lessons') }}"> Lesson List </a>
-            <a class="collapse-item" href="{{ url('users/lessons/create') }}"> New Lesson </a>
+            {{-- <a class="collapse-item" href="{{ url('users/lessons/create') }}"> New Lesson </a> --}}
         </div>
         </div>
     </li>

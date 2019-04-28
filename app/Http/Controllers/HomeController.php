@@ -14,7 +14,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $this->data['courses'] = Course::all();
+        $this->data['courses'] = Course::approved()->get();
+        
         return view('website.home', $this->data);
     }
 }
